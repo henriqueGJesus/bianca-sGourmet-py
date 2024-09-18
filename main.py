@@ -14,7 +14,7 @@ app.add_middleware(
 )
 media_id = '1238261930922576'
 client_secret = '7499887e6d7fb01466d03c5faeb694f1'
-redirect_uri = 'http://localhost:8000/handle_redirect'  # URL de redirecionamento
+redirect_uri = 'https://bianca-s-gourmet-py-6p2c.vercel.app/handle_redirect'  # URL de redirecionamento
 
 
 # Passo 1: Redirecionar o usuário para o Instagram para obter autorização
