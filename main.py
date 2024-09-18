@@ -58,7 +58,7 @@ def handle_redirect(code: str):
         # Criar um dicionário para representar os cookies
         response = Response("Authentication successful")
         response.set_cookie(key="access_token", value=access_token_data)
-        return response
+        return RedirectResponse(url=redrect_front)
 
     return {"error": "Erro ao trocar o código pelo token", "details": response_post.json()}
 
