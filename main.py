@@ -62,6 +62,7 @@ def handle_redirect(code: str):
 
         # Definir o local para onde o usuário será redirecionado
         response.headers["Location"] = redrect_front
+        return response
 
     return {"error": "Erro ao trocar o código pelo token", "details": response_post.json()}
 
