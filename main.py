@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Response
+from fastapi import FastAPI, Response, status
 from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from requests.cookies import cookiejar_from_dict
@@ -56,9 +56,12 @@ def handle_redirect(code: str):
         # Sucesso, obtenha o token de acesso
         access_token_data = response_post.json()
         # Criar um dicionário para representar os cookies
-        response = Response("Authentication successful")
-        response.set_cookie(key="access_token", value=access_token_data)
-        return RedirectResponse(url=redrect_front)
+        response = Response("Authentication successful", status_code=status.HTTP_302_FOUND)
+        response.set_cookie(key="access_token", value=access_token_data['access_token'], httponly=True, secure=True,
+                            samesite="Strict")
+
+        # Definir o local para onde o usuário será redirecionado
+        response.headers["Location"] = redrect_front
 
     return {"error": "Erro ao trocar o código pelo token", "details": response_post.json()}
 
