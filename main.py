@@ -15,7 +15,7 @@ app.add_middleware(
 media_id = '1238261930922576'
 client_secret = '7499887e6d7fb01466d03c5faeb694f1'
 redirect_uri = 'https://bianca-s-gourmet-py-6p2c.vercel.app/handle_redirect'  # URL de redirecionamento
-
+redrect_front = 'http://localhost:5173'
 
 # Passo 1: Redirecionar o usuário para o Instagram para obter autorização
 @app.get("/login")
@@ -23,10 +23,10 @@ def login():
     auth_url = "https://api.instagram.com/oauth/authorize"
     auth_params = {
         'client_id': media_id,
-        'redirect_uri': redirect_uri,
+        'client_secret': client_secret,
+        'redirect_uri': 'https://bianca-s-gourmet-py-6p2c.vercel.app/handle_redirect',
         'scope': 'user_profile',
         'response_type': 'code',
-        'state': '1'
     }
 
     full_auth_url = requests.Request('GET', auth_url, params=auth_params).prepare().url
@@ -54,7 +54,7 @@ def handle_redirect(code: str):
     if response_post.status_code == 200:
         # Sucesso, obtenha o token de acesso
         access_token_data = response_post.json()
-        return {"access_token": access_token_data}
+        return RedirectResponse(url=redrect_front)
 
     return {"error": "Erro ao trocar o código pelo token", "details": response_post.json()}
 
