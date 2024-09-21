@@ -53,7 +53,7 @@ def handle_redirect(code: str):
 
     # Fazer a requisição para o Instagram para obter o token de acesso
     response_post = requests.post(token_url, data=body_of_request_post)
-    response= ""
+    response = ""
     if response_post.status_code == 200:
         # Sucesso, obtenha o token de acesso
         access_token_data = response_post.json()
@@ -61,7 +61,7 @@ def handle_redirect(code: str):
         response = Response("Authentication successful", status_code=status.HTTP_302_FOUND)
         response.set_cookie(key="access_token", value=access_token_data['access_token'], httponly=True, secure=True,
                             samesite="Strict")
-    retorno = get_media_ids(response.headers.get('Set-Cookie'))
+
 
     return retorno
 
