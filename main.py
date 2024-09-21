@@ -61,7 +61,7 @@ def handle_redirect(code: str):
         response = Response("Authentication successful", status_code=status.HTTP_302_FOUND)
         response.set_cookie(key="access_token", value=access_token_data['access_token'], httponly=True, secure=True,
                             samesite="Strict")
-
+    get_media_ids()
     return response
 
 
