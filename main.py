@@ -62,7 +62,7 @@ def handle_redirect(code: str):
         response.set_cookie(key="access_token", value=access_token_data['access_token'], httponly=True, secure=True,
                             samesite="Strict")
         print(response)
-        return response
+        return response.headers
 
     return {"error": "Erro ao trocar o código pelo token", "details": response_post.json()}
 
