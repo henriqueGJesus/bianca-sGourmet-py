@@ -62,8 +62,7 @@ def handle_redirect(code: str):
         response.set_cookie(key="access_token", value=access_token_data['access_token'], httponly=True, secure=True,
                             samesite="Strict")
 
-
-    return retorno
+    return response
 
 
 # Função para obter os posts de um usuário e encontrar o media_id
