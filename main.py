@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Response, status
+from fastapi import FastAPI, Response, status, Cookie
 from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from requests.cookies import cookiejar_from_dict
@@ -18,6 +18,7 @@ client_secret = '7499887e6d7fb01466d03c5faeb694f1'
 redirect_uri = 'https://bianca-s-gourmet-py-6p2c.vercel.app/handle_redirect'  # URL de redirecionamento
 redrect_front = 'http://localhost:5173'
 
+
 # Passo 1: Redirecionar o usuário para o Instagram para obter autorização
 @app.get("/login")
 def login():
@@ -33,6 +34,7 @@ def login():
     full_auth_url = requests.Request('GET', auth_url, params=auth_params).prepare().url
 
     return RedirectResponse(url=full_auth_url)
+
 
 @app.get("/handle_redirect")
 def handle_redirect(code: str):
@@ -59,8 +61,7 @@ def handle_redirect(code: str):
         response = Response("Authentication successful", status_code=status.HTTP_302_FOUND)
         response.set_cookie(key="access_token", value=access_token_data['access_token'], httponly=True, secure=True,
                             samesite="Strict")
-
-
+        print(response)
         return response
 
     return {"error": "Erro ao trocar o código pelo token", "details": response_post.json()}
