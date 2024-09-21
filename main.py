@@ -62,7 +62,7 @@ def handle_redirect(code: str):
         response.set_cookie(key="access_token", value=access_token_data['access_token'], httponly=True, secure=True,
                             samesite="Strict")
 
-    get_media_ids(response.headers.get('Set-Cookie'))
+    get_media_ids('teste')
     return response
 
 
