@@ -61,12 +61,13 @@ def handle_redirect(code: str):
         response = Response("Authentication successful", status_code=status.HTTP_302_FOUND)
         response.set_cookie(key="access_token", value=access_token_data['access_token'], httponly=True, secure=True,
                             samesite="Strict")
-    get_media_ids()
+
+    get_media_ids(response.headers.get('Set-Cookie'))
     return response
 
 
 # Função para obter os posts de um usuário e encontrar o media_id
-@app.get("/get_media_ids")
+
 def get_media_ids(access_token: str = Cookie(None)):
     if not access_token:
         raise HTTPException(status_code=403, detail="Acesso negado. Token de acesso não fornecido.")
