@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1add2a4-9cba-4cca-9434-93550b9fed70" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="a1add2a4-9cba-4cca-9434-93550b9fed70" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +54,7 @@
       <recent name="C:\Users\Henrique\Desktop\biancasGourmet\apiBiancasGourmet\api" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.sorteador">
+  <component name="RunManager" selected="FastAPI.apiBiancasGourmet">
     <configuration name="All in test_main" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/test_main.http">
       <method v="2" />
     </configuration>
@@ -126,7 +123,7 @@
       <workItem from="1726526258592" duration="17000" />
       <workItem from="1726526284572" duration="9687000" />
       <workItem from="1726614860532" duration="8359000" />
-      <workItem from="1726947851546" duration="2491000" />
+      <workItem from="1726947851546" duration="2998000" />
     </task>
     <servers />
   </component>

@@ -71,17 +71,17 @@ def handle_redirect(code: str):
 def get_media_ids(access_token: str = Cookie(None)):
     if not access_token:
         raise HTTPException(status_code=403, detail="Acesso negado. Token de acesso não fornecido.")
-
+    print('teste1')
     # URL da API para obter as mídias do usuário
     media_url = 'https://graph.instagram.com/me/media'
     params = {
         'access_token': access_token,
         'fields': 'id,caption,media_type,media_url'  # Os campos que queremos obter
     }
-
+    print('teste2')
     # Fazer a requisição para obter as mídias
     response = requests.get(media_url, params=params)
-
+    print('teste3')
     if response.status_code == 200:
         media_data = response.json()
         # Retorna os IDs de todas as mídias
