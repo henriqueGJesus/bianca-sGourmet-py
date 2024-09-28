@@ -9,7 +9,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Permitir a origem do frontend (Vue.js)
+    allow_origins=["http://localhost:5173", "https://bianca-s-gourmet-356k.vercel.app/*"],  # Permitir a origem do frontend (Vue.js)
     allow_credentials=True,
     allow_methods=["*"],  # Permitir todos os métodos HTTP (GET, POST, etc.)
     allow_headers=["*"],  # Permitir todos os cabeçalhos
