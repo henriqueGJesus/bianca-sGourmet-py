@@ -1,3 +1,4 @@
 requests~=2.32.3
 uvicorn~=0.30.6
 fastapi~=0.114.2
+insta-scrape~=2.1.2
